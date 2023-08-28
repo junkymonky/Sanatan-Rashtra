@@ -50,7 +50,7 @@ module.exports = {
                 {name: `Translation`, value: `${response.data.translation}`},
                 {name: `Transliteration`, value: `${response.data.transliteration}`},
                 {name: `Summary`, value: `**English**▶️ ${response.data.summary.en}`},
-               // {name: `Summary`, value: `**Hindi**:▶️ ${response.data.summary.hi}`}
+                {name: `Summary`, value: `**Hindi**:▶️ ${response.data.summary.hi}`}
             )
             .setImage(String([images[image]]))
             .setColor("#2f3035")

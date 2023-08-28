@@ -34,7 +34,7 @@ module.exports = {
         .setThumbnail("https://i.pinimg.com/564x/e7/0d/9e/e70d9e24deef2a2ae83a81f940f8ed00.jpg")
         .addFields(
           { name: ' ', value: '🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥🟥 100%' },
-          { name: '**Murkh** Krsna Loves you ', value: ' ' },
+          { name: '**Murkh**, Krsna Loves you ', value: ' ' },
         )
 
         const row1 = new MessageActionRow()
