@@ -21,7 +21,7 @@
         "html2json": "^1.0.2",
         "htmlparser2": "^8.0.2",
         "jsdom": "^21.1.1",
-        "mongoose": "^6.0.2",
+        "mongoose": "^7.5.0",
         "mysql": "^2.18.1",
         "nekos.life": "^3.0.0",
         "node-html-parser": "^6.1.5",
