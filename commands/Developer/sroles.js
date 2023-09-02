@@ -43,25 +43,3 @@ module.exports = {
     }
 }
 
-client.on('interactionCreate', async (interaction) => {
-    if (!interaction.isSelectMenu()) return;
-
-    if (interaction.customId === 'role_select') {
-        const selectedRole = interaction.values[0]; // Assuming only one value is selected
-        const role = interaction.guild.roles.cache.find(role => role.id === selectedRole);
-
-        if (role) {
-            const member = interaction.guild.members.cache.get(interaction.user.id);
-
-            if (member.roles.cache.has(role.id)) {
-                member.roles.remove(role);
-                await interaction.reply({ content: `You have been removed from the ${role.name} role.` });
-            } else {
-                member.roles.add(role);
-                await interaction.reply({ content: `You have been given the ${role.name} role.` });
-            }
-        } else {
-            await interaction.reply({ content: 'Role not found.', ephemeral: true });
-        }
-    }
-});

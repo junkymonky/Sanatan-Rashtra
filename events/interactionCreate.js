@@ -378,6 +378,35 @@ if (interaction.isButton()) {
   
 }
 
+if (interaction.isSelectMenu()) {
+  if (interaction.customId === 'role_select') {
+      const selectedRole = interaction.values[0]; // Assuming only one value is selected
+      const role = interaction.guild.roles.cache.find(role => role.id === selectedRole);
+
+      if (role) {
+          const member = interaction.guild.members.cache.get(interaction.user.id);
+
+          if (member.roles.cache.has(role.id)) {
+              await interaction.deferReply({ ephemeral: true });
+              member.roles.remove(role);
+
+              await interaction.followUp({ content: `You have been removed from the ${role.name} role.`, ephemeral: true });
+          } else {
+              member.roles.add(role);
+              await interaction.reply({ content: `You have been given the ${role.name} role.`, ephemeral: true});
+          }
+      } else {
+        try {
+          await interaction.deferReply({ content: 'Role not found.', ephemeral: true });
+          
+        } catch(err) {
+          console.log("error")
+        }
+      }
+  }
+}
+
+
  
     
 
