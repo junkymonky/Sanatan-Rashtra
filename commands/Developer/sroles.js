@@ -34,6 +34,21 @@ module.exports = {
                     label: 'Shakta',
                     description: 'get Shakta Role',
                     value: "935583805610295376"
+                },
+                {
+                    label: 'Iskcon',
+                    description: 'get Iskcon Role',
+                    value: "935584950143574066"
+                },
+                {
+                    label: 'Arya Samaj',
+                    description: 'get Arya Samaj Role',
+                    value: "935585016069619712"
+                },
+                {
+                    label: 'Smarth',
+                    description: 'get Smarth role',
+                    value: "935585210840543282"
                 }
             ]),
         )
