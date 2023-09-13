@@ -1,6 +1,46 @@
 const client = require("../index");
 const { MessageEmbed, MessageActionRow, MessageButton } = require("discord.js")
+const mysql = require("mysql");
+
 client.on("messageCreate", async (message) => {
+
+  const db = mysql.createConnection({
+    host: `localhost`,
+    user: `root`,
+    password: `mommabest@03`,
+    database: `blacklisted`
+  });
+
+  db.connect(function(err){
+    if (err) {
+        console.log(err)
+    } else {
+      db.query(`SELECT * FROM blackword;`, (err, results) => {
+        if (err) {
+          return console.log(err);
+        } else {
+          const blockedWords = results.map((row) => row.words.toLowerCase());
+          const msgContent = message.content.toLowerCase();
+    
+          if (blockedWords.some((word) => msgContent.includes(word))) {
+            message.delete();
+            message.channel.send({
+              embeds: [
+                {
+                  title: 'Message Deleted',
+                  description: `${message.author} your message contained a blacklisted word and has been deleted.\nPlease contact the staff if you feel this is an error.`,
+                  color: 16711680,
+                },
+              ],
+            });
+          }
+        }
+      });
+  
+    }
+  })
+  
+
 
   if (message.content.startsWith("hari bol")) {
 
@@ -40,6 +80,7 @@ client.on("messageCreate", async (message) => {
     }
 
 
+
     if (
         message.author.bot ||
         !message.guild ||
@@ -56,8 +97,6 @@ client.on("messageCreate", async (message) => {
 
     if (!command) return;
     await command.run(client, message, args);
-
-    
 
 
 });
