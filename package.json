@@ -22,7 +22,7 @@
         "htmlparser2": "^8.0.2",
         "jsdom": "^21.1.1",
         "moment": "^2.29.4",
-        "mongoose": "^6.0.2",
+        "mongoose": "^7.6.3",
         "mysql": "^2.18.1",
         "nekos.life": "^3.0.0",
         "node-html-parser": "^6.1.5",
