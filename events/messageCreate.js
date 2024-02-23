@@ -7,7 +7,7 @@ client.on("messageCreate", async (message) => {
   const db = mysql.createConnection({
     host: `localhost`,
     user: `root`,
-    password: `mommabest@03`,
+    password: `---`,
     database: `blacklisted`
   });
 
